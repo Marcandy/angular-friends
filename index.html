@@ -17,18 +17,30 @@
         <!-- <input class="form-control" ng-model='searchTerm' placeholder="Search Anything About Your Friends"> -->
         <!-- STEP 5: Get rid of the one above when you uncomment the below-->
 
+        <select ng-model='friends' ng-options="friends as fr ">
+
+        </select>
         <input class="form-control"  placeholder="Search Name" ng-model='f.name'>
         <input class="form-control" placeholder="Search Location" ng-model='f.current_location.name'>
 
-        <select class="input-medium" ng-model='sortProp'>
+          <!-- black diomond -->
+          <select
+          class="input-medium"
+          ng-model='sortProp'
+          ng-options='option.value as option.name for option in options'>
+
+          </select>
+
+        <!-- <select class="input-medium" ng-model='sortProp'>
           <option value="name">Name</option>
           <option value="friend_count">#Friends</option>
           <option value="current_location.city">City</option>
           <option value="current_location.state">State</option>
           <option value="current_location.country">Country</option>
-        </select>
+        </select> -->
 
-        <select class="input-medium" ng-model='sortDirection'>
+        <select class="input-medium" ng-model='sortDirection'
+        >
           <option value="+">Descending</option>
           <option value="">Ascending</option>
         </select>
@@ -36,8 +48,8 @@
       </div>
     </form>
 
-
-    <ul ng-repeat='f in friends | filter: friendname | filter: f | orderBy:sortProp : sortDirection'>
+  <!-- ng-repeat='f in friends | filter: friendname | filter: f | orderBy:sortProp : sortDirection' -->
+    <ul ng-repeat='f in friends | filter: friendname | filter: f | orderBy: sortProp : sortDirection'>
       <li class='friend' value='{{friend_count}}'>
         <img class="profile-pic" ng-src='{{f.pic_square}}'>
 

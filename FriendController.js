@@ -1,6 +1,13 @@
 angular.module('face').controller('friendController', function($scope) {
     $scope.test = 'working';
 
+    $scope.options = [
+      {name: 'Name', value: 'name'},
+      {name:'#Friends', value: 'friend_count'},
+      {name: 'city', value: 'current_location.city'},
+      {name: 'State', value: 'current_location.state'},
+      {name: 'country', value: 'current_location.country'}
+    ];
 
 
     $scope.friends = [
